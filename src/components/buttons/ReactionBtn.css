@@ -1,0 +1,53 @@
+@import '../../assets/colors.css';
+
+.reaction-btn {
+	display: flex;
+	width: 90px;
+	height: 40px;
+	background-color: var(--very-light-gray);
+	border-radius: 1rem;
+	overflow: hidden;
+}
+
+.reaction-btn button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 30px;
+	height: 100%;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	font-size: 2.3rem;
+	color: var(--gray);
+	cursor: pointer;
+	transition: color 0.3s;
+}
+
+.reaction-btn button:hover,
+.reaction-btn .active-btn {
+	color: var(--moderate-blue);
+}
+
+.reaction-btn p {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 30px;
+	height: 100%;
+	color: var(--moderate-blue);
+	font-weight: 500;
+}
+
+@media (min-width: 992px) {
+	.reaction-btn {
+		flex-direction: column;
+		width: 40px;
+		height: 90px;
+	}
+
+	.reaction-btn button, .reaction-btn p {
+		width: 100%;
+		height: 30px;
+	}
+}

@@ -4,7 +4,6 @@ import CommentsList from './components/CommentsList';
 const App = () => {
 	return (
 		<CommentContextProvider>
-			<h1>App Title</h1>
 			<CommentsList />
 		</CommentContextProvider>
 	);

@@ -1,0 +1,9 @@
+@import '../../assets/colors.css';
+
+.delete-btn {
+	color: var(--soft-red);
+}
+
+.delete-btn:hover {
+	color: var(--pale-red);
+}

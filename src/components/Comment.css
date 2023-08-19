@@ -1,0 +1,79 @@
+@import url('../assets/colors.css');
+
+.comment-box {
+	width: 100%;
+	max-width: 700px;
+	padding: 0.8em;
+	margin: 0.5em 0;
+	background-color: var(--white);
+	border-radius: 1rem;
+	color: var(--grayish-blue);
+}
+
+.comment-header {
+	margin-bottom: 1em;
+	font-size: 1.4rem;
+}
+
+.comment-info {
+	display: flex;
+	align-items: center;
+}
+
+.avatar {
+	height: 32px;
+	width: 32px;
+}
+
+.username {
+	margin: 0 0.8em;
+	font-weight: 500;
+	color: var(--dark-blue);
+}
+
+.badge {
+	margin-right: 1em;
+	padding: 0.2em 0.4em;
+	background-color: var(--moderate-blue);
+	color: var(--white);
+	font-size: 1.2rem;
+}
+
+.comment-text {
+	margin-bottom: 1.5em;
+	font-size: 1.3rem;
+	line-height: 1.5;
+}
+
+.comment-aside {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+@media (min-width: 992px) {
+	.comment-box {
+		display: flex;
+		padding: 1.5em;
+	}
+
+	.comment-main {
+		order: 1;
+		margin-left: 1.3em;
+	}
+
+	.comment-header {
+		display: flex;
+		justify-content: space-between;
+		font-size: 1.6rem;
+	}
+
+	.comment-text {
+		margin-bottom: 0;
+		font-size: 1.5rem;
+	}
+
+	.comment-aside {
+		display: block;
+	}
+}

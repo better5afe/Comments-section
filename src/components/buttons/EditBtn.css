@@ -1,0 +1,9 @@
+@import '../../assets/colors.css';
+
+.edit-btn {
+	color: var(--moderate-blue);
+}
+
+.edit-btn:hover {
+	color: var(--gray);
+}

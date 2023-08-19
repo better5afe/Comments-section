@@ -1,0 +1,17 @@
+.mobile-actions {
+	display: flex;
+}
+
+.desktop-actions {
+	display: none;
+}
+
+@media (min-width: 992px) {
+	.mobile-actions {
+		display: none;
+	}
+
+	.desktop-actions {
+		display: flex;
+	}
+}

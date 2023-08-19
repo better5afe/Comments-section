@@ -2,9 +2,11 @@ import React from 'react';
 import { Comment } from '../models/comment';
 
 interface ContextTypes {
-	commentsList: Comment[];
+	rootComments: Comment[];
+	replies: Comment[];
 }
 
 export const CommentContext = React.createContext<ContextTypes>({
-	commentsList: [],
+	rootComments: [],
+	replies: [],
 });

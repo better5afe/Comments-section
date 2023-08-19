@@ -1,0 +1,9 @@
+@import '../../assets/colors.css';
+
+.reply-btn {
+	color: var(--moderate-blue);
+}
+
+.reply-btn:hover {
+	color: var(--gray);
+}
