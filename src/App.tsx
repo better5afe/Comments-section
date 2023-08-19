@@ -1,5 +1,13 @@
+import CommentContextProvider from './context/CommentContextProvider';
+import CommentsList from './components/CommentsList';
+
 const App = () => {
-	return <h1>App</h1>;
+	return (
+		<CommentContextProvider>
+			<h1>App Title</h1>
+			<CommentsList />
+		</CommentContextProvider>
+	);
 };
 
 export default App;
