@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+import { Comment as CommentType } from '../models/comment';
 import ReactionBtn from './buttons/ReactionBtn';
 import CommentActionsBtns from './CommentActionBtns';
 
@@ -10,40 +12,103 @@ interface CommentProps {
 	avatar: string;
 	userId: string;
 	body: string;
+	parentId: null | string;
 	createdAt: string;
 	score: string;
+	replies: CommentType[];
+	replyingTo: null | string;
+	commentLevel: number;
 }
 
 const Comment: React.FC<CommentProps> = ({
-	key,
 	id,
 	username,
 	avatar,
 	userId,
 	body,
+	parentId,
 	createdAt,
 	score,
+	replies,
+	replyingTo,
+	commentLevel,
 }) => {
+	const [nestingLevel, setNestingLevel] = useState(0);
+
+	useEffect(() => {
+		if (parentId === null) {
+			setNestingLevel(0);
+		} else if (parentId !== null && nestingLevel === 0) {
+			setNestingLevel(1);
+		} else if (parentId !== null && commentLevel === 1) {
+			setNestingLevel(2);
+		} else if (parentId !== null && commentLevel === 2) {
+			setNestingLevel(3)
+		}
+	}, [parentId, nestingLevel, commentLevel]);
+
+	const commentReplies = replies.filter((reply) => reply.parentId === id);
+
 	return (
-		<div className='comment-box' key={key}>
-			<div className='comment-main'>
-				<div className='comment-header'>
-					<div className='comment-info'>
-						<img src={avatar} className='avatar' alt="User's avatar" />
-						<p className='username'>{username}</p>
-						{userId === '4' ? <p className='badge'>you</p> : ''}
-						<p className='created-at'>{createdAt}</p>
+		<div>
+			<div className='comment-box' id={id}>
+				<div className='comment-main'>
+					<div className='comment-header'>
+						<div className='comment-info'>
+							<img src={avatar} className='avatar' alt="User's avatar" />
+							<p className='username'>{username}</p>
+							{userId === '4' ? <p className='badge'>you</p> : ''}
+							<p className='created-at'>{createdAt}</p>
+						</div>
+						<CommentActionsBtns
+							className='desktop-actions'
+							userId={userId}
+							nestingLevel={commentLevel}
+						
+						/>
 					</div>
-					<CommentActionsBtns className='desktop-actions' />
+					<div className='comment-body'>
+						<p className='comment-text'>
+							{replyingTo && (
+								<span className='replying-to'>@{replyingTo} </span>
+							)}
+							{body}
+						</p>
+					</div>
 				</div>
-				<div className='comment-body'>
-					<p className='comment-text'>{body}</p>
+				<div className='comment-aside'>
+					<ReactionBtn score={score} />
+					<CommentActionsBtns
+						className='mobile-actions'
+						userId={userId}
+						nestingLevel={commentLevel}
+						
+					/>
 				</div>
 			</div>
-			<div className='comment-aside'>
-				<ReactionBtn score={score} />
-				<CommentActionsBtns className='mobile-actions' />
-			</div>
+			{replies.length > 0 && (
+				<>
+					{commentReplies.map((reply) => (
+						<div className='replies-box'>
+							<div className='reply-separator'>&nbsp;</div>
+							<Comment
+								key={reply.id}
+								id={reply.id}
+								username={reply.user.username}
+								avatar={reply.user.userImg}
+								userId={reply.user.userId}
+								body={reply.body}
+								parentId={reply.parentId}
+								createdAt={reply.createdAt}
+								score={reply.score}
+								replies={replies}
+								replyingTo={reply.replyingTo}
+								commentLevel={nestingLevel}
+							/>
+						</div>
+					))}
+				</>
+			)}
 		</div>
 	);
 };

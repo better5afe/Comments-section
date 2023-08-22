@@ -14,6 +14,7 @@ export const getComments = async () => {
 			'1 month ago',
 			'12',
 			null
+			
 		),
 		new CommentClass(
 			'2',
@@ -27,6 +28,7 @@ export const getComments = async () => {
 			'2 weeks ago',
 			'5',
 			null
+			
 		),
 		new CommentClass(
 			'3',
@@ -40,6 +42,7 @@ export const getComments = async () => {
 			'1 week ago',
 			'4',
 			'maxblagun'
+			
 		),
 		new CommentClass(
 			'4',
@@ -54,5 +57,20 @@ export const getComments = async () => {
 			'2',
 			'ramsesmiron'
 		),
+		new CommentClass(
+			'5',
+			`If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.`,
+			{
+				username: 'test',
+				userImg: require('../assets/images/image-ramsesmiron.png'),
+				userId: '3',
+			},
+			'4',
+			'1 week ago',
+			'4',
+			'maxblagun'
+			
+		),
 	];
 };
+

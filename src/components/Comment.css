@@ -45,12 +45,29 @@
 	line-height: 1.5;
 }
 
+.replying-to {
+	font-weight: 500;
+	color: var(--moderate-blue);
+}
+
 .comment-aside {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
+.replies-box {
+	display: flex;
+	background-color: red;
+	justify-content: space-between;
+	align-items: start;
+}
+
+.reply-separator {
+	height: 100%;
+	width: 5px;
+	background-color: red;
+}
 @media (min-width: 992px) {
 	.comment-box {
 		display: flex;

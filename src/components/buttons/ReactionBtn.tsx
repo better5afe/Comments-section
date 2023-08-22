@@ -14,7 +14,7 @@ const ReactionBtn: React.FC<ReactionBtnProps> = ({ score }) => {
 	const onScore = (num: number, event: React.MouseEvent<HTMLButtonElement>) => {
 		event.preventDefault();
 
-		if ((isScoredUp && num === 1) || (isScoredDown && num === 1)) {
+		if ((isScoredUp && num === 1) || (isScoredDown && num === -1)) {
 			setCommentScore(+score);
 			setIsScoredUp(false);
 			setIsScoredDown(false);

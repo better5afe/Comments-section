@@ -16,6 +16,6 @@ export class Comment implements CommentInterface {
 		this.parentId = parentId;
 		this.createdAt = createdAt;
 		this.score = score;
-		this.replyingTo = replyingTo;
+		this.replyingTo = replyingTo
 	}
 }

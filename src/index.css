@@ -25,12 +25,6 @@ textarea::placeholder {
 	font-size: 1.4rem;
 }
 
-.comment-section {
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-}
-
 .reply-btn,
 .edit-btn,
 .delete-btn {
