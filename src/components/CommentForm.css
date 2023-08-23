@@ -1,0 +1,34 @@
+@import url('../assets/colors.css');
+
+.textarea {
+	height: 80px;
+	padding: 0.8em 1em;
+	margin-bottom: 0.8em;
+	border: 1px solid var(--gray);
+	border-radius: 1rem;
+	outline: none;
+	resize: none;
+	width: 100%;
+}
+
+.textarea:focus {
+	border: 1px solid var(--grayish-blue);
+}
+
+.form-btn {
+	float: right;
+}
+
+@media (min-width: 992px) {
+	.textarea {
+		margin: 0 0.8em;
+	}
+
+	.avatar {
+		order: -1;
+	}
+
+    .form-btn {
+        align-self: flex-start;
+    }
+}

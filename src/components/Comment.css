@@ -1,15 +1,5 @@
 @import url('../assets/colors.css');
 
-.comment-box {
-	width: 100%;
-	max-width: 700px;
-	padding: 0.8em;
-	margin: 0.5em 0;
-	background-color: var(--white);
-	border-radius: 1rem;
-	color: var(--grayish-blue);
-}
-
 .comment-header {
 	margin-bottom: 1em;
 	font-size: 1.4rem;
@@ -18,11 +8,6 @@
 .comment-info {
 	display: flex;
 	align-items: center;
-}
-
-.avatar {
-	height: 32px;
-	width: 32px;
 }
 
 .username {
@@ -56,24 +41,13 @@
 	align-items: center;
 }
 
-.replies-box {
-	display: flex;
-	background-color: red;
-	justify-content: space-between;
-	align-items: start;
+.nested-replies {
+	padding-left: 0.8em;
+	list-style-type: none;
+	border-left: 1px solid var(--gray);
 }
 
-.reply-separator {
-	height: 100%;
-	width: 5px;
-	background-color: red;
-}
 @media (min-width: 992px) {
-	.comment-box {
-		display: flex;
-		padding: 1.5em;
-	}
-
 	.comment-main {
 		order: 1;
 		margin-left: 1.3em;
@@ -92,5 +66,11 @@
 
 	.comment-aside {
 		display: block;
+	}
+
+	.nested-replies {
+		padding-left: 1.5em;
+		margin-left: 1.5em;
+		border-left: 2px solid var(--light-gray);
 	}
 }

@@ -43,15 +43,15 @@ const Comment: React.FC<CommentProps> = ({
 		} else if (parentId !== null && commentLevel === 1) {
 			setNestingLevel(2);
 		} else if (parentId !== null && commentLevel === 2) {
-			setNestingLevel(3)
+			setNestingLevel(3);
 		}
 	}, [parentId, nestingLevel, commentLevel]);
 
 	const commentReplies = replies.filter((reply) => reply.parentId === id);
 
 	return (
-		<div>
-			<div className='comment-box' id={id}>
+		<>
+			<div className='component-box' id={id}>
 				<div className='comment-main'>
 					<div className='comment-header'>
 						<div className='comment-info'>
@@ -64,7 +64,6 @@ const Comment: React.FC<CommentProps> = ({
 							className='desktop-actions'
 							userId={userId}
 							nestingLevel={commentLevel}
-						
 						/>
 					</div>
 					<div className='comment-body'>
@@ -82,15 +81,13 @@ const Comment: React.FC<CommentProps> = ({
 						className='mobile-actions'
 						userId={userId}
 						nestingLevel={commentLevel}
-						
 					/>
 				</div>
 			</div>
 			{replies.length > 0 && (
-				<>
+				<ul className='nested-replies'>
 					{commentReplies.map((reply) => (
-						<div className='replies-box'>
-							<div className='reply-separator'>&nbsp;</div>
+						<li>
 							<Comment
 								key={reply.id}
 								id={reply.id}
@@ -105,11 +102,11 @@ const Comment: React.FC<CommentProps> = ({
 								replyingTo={reply.replyingTo}
 								commentLevel={nestingLevel}
 							/>
-						</div>
+						</li>
 					))}
-				</>
+				</ul>
 			)}
-		</div>
+		</>
 	);
 };
 

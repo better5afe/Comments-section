@@ -2,8 +2,6 @@ import { useContext } from 'react';
 import { CommentContext } from '../context/comment-context';
 import Comment from './Comment';
 
-import './CommentsList.css';
-
 const CommentsList = () => {
 	const commentCtx = useContext(CommentContext);
 
@@ -16,7 +14,7 @@ const CommentsList = () => {
 	);
 
 	return (
-		<div className='comments-list'>
+		<>
 			{rootComments.map((comment) => (
 				<Comment
 					key={comment.id}
@@ -33,7 +31,7 @@ const CommentsList = () => {
 					commentLevel={0}
 				/>
 			))}
-		</div>
+		</>
 	);
 };
 
