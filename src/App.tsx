@@ -8,7 +8,7 @@ const App = () => {
 		<div className='app-wrapper'>
 			<CommentContextProvider>
 				<CommentsList />
-				<CommentForm placeholder='Add a comment...' buttonText='send' />
+				<CommentForm placeholder='Add a comment...' buttonText='send' commentId={null} username={null} />
 				<Modal />
 			</CommentContextProvider>
 		</div>

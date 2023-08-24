@@ -54,6 +54,19 @@ export const getComments = async () => {
 			'2',
 			'ramsesmiron'
 		),
+		new CommentClass(
+			'5',
+			`That's true! Just keep going and practicing!`,
+			{
+				username: 'amyrobson',
+				userImg: require('../assets/images/image-amyrobson.png'),
+				userId: '1',
+			},
+			'4',
+			'1 day ago',
+			'1',
+			'juliusomo'
+		)
 	];
 };
 
@@ -75,7 +88,7 @@ export const addComment = (
 		'0',
 		replyingTo
 	);
-	
+
 	return newComment;
 };
 

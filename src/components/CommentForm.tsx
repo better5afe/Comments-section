@@ -8,11 +8,15 @@ const avatar = require('../assets/images/image-juliusomo.png');
 interface CommentFormProps {
 	placeholder: string;
 	buttonText: string;
+	commentId: string | null;
+	username: string | null;
 }
 
 const CommentForm: React.FC<CommentFormProps> = ({
 	placeholder,
 	buttonText,
+	commentId,
+	username,
 }) => {
 	const [textareaValue, setTextareaValue] = useState('');
 
@@ -24,7 +28,11 @@ const CommentForm: React.FC<CommentFormProps> = ({
 
 	const submitHandler = (event: React.FormEvent) => {
 		event.preventDefault();
-		commentCtx.addComment(textareaValue, null, null);
+		if (buttonText === 'send') {
+			commentCtx.addComment(textareaValue, null, null);
+		} else if (buttonText === 'reply') {
+			commentCtx.addComment(textareaValue, commentId, username);
+		}
 		setTextareaValue('');
 	};
 

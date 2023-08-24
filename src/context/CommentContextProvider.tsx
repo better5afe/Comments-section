@@ -37,6 +37,7 @@ const CommentContextProvider: React.FC<ProviderProps> = ({ children }) => {
 	) => {
 		const newComment = addCommentAPI(body, parentId, replyingTo);
 		setFetchedComments([...fetchedComments, newComment]);
+		setIsReplying(false);
 	};
 
 	const openReplyFormHandler = (id: string) => {

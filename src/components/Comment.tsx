@@ -90,31 +90,36 @@ const Comment: React.FC<CommentProps> = ({
 					/>
 				</div>
 			</div>
-			{commentCtx.isReplying &&
-				id ===
-					commentCtx.currentCommentId && (
-						<CommentForm placeholder='Add a reply' buttonText='reply' />
-					)}
+			{commentCtx.isReplying && id === commentCtx.currentCommentId && (
+				<CommentForm
+					placeholder='Add a reply'
+					buttonText='reply'
+					commentId={id}
+					username={username}
+				/>
+			)}
 			{replies.length > 0 && (
 				<ul className='nested-replies'>
-					{commentReplies.map((reply) => (
-						<li>
-							<Comment
-								key={reply.id}
-								id={reply.id}
-								username={reply.user.username}
-								avatar={reply.user.userImg}
-								userId={reply.user.userId}
-								body={reply.body}
-								parentId={reply.parentId}
-								createdAt={reply.createdAt}
-								score={reply.score}
-								replies={replies}
-								replyingTo={reply.replyingTo}
-								commentLevel={nestingLevel}
-							/>
-						</li>
-					))}
+					{commentReplies
+						.map((reply) => (
+							<li>
+								<Comment
+									key={reply.id}
+									id={reply.id}
+									username={reply.user.username}
+									avatar={reply.user.userImg}
+									userId={reply.user.userId}
+									body={reply.body}
+									parentId={reply.parentId}
+									createdAt={reply.createdAt}
+									score={reply.score}
+									replies={replies}
+									replyingTo={reply.replyingTo}
+									commentLevel={nestingLevel}
+								/>
+							</li>
+						))
+						.reverse()}
 				</ul>
 			)}
 		</>
