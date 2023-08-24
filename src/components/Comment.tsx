@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Comment as CommentType } from '../models/comment';
 import ReactionBtn from './buttons/ReactionBtn';
 import CommentActionsBtns from './CommentActionBtns';
+import CommentForm from './CommentForm';
+import { CommentContext } from '../context/comment-context';
 
 import './Comment.css';
 
@@ -34,6 +36,8 @@ const Comment: React.FC<CommentProps> = ({
 	commentLevel,
 }) => {
 	const [nestingLevel, setNestingLevel] = useState(0);
+
+	const commentCtx = useContext(CommentContext);
 
 	useEffect(() => {
 		if (parentId === null) {
@@ -86,6 +90,11 @@ const Comment: React.FC<CommentProps> = ({
 					/>
 				</div>
 			</div>
+			{commentCtx.isReplying &&
+				id ===
+					commentCtx.currentCommentId && (
+						<CommentForm placeholder='Add a reply' buttonText='reply' />
+					)}
 			{replies.length > 0 && (
 				<ul className='nested-replies'>
 					{commentReplies.map((reply) => (

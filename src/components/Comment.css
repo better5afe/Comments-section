@@ -51,6 +51,7 @@
 	.comment-main {
 		order: 1;
 		margin-left: 1.3em;
+		width: 100%;
 	}
 
 	.comment-header {

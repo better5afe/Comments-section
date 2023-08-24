@@ -5,6 +5,7 @@ interface ActionBtnProps {
 	className?: string;
 	onClick?: () => void;
 	type: 'button' | 'submit';
+	isDisabled?: boolean;
 }
 
 const ActionBtn: React.FC<ActionBtnProps> = ({
@@ -12,6 +13,7 @@ const ActionBtn: React.FC<ActionBtnProps> = ({
 	className,
 	onClick,
 	type,
+	isDisabled,
 }) => {
 	return (
 		<button
@@ -19,6 +21,7 @@ const ActionBtn: React.FC<ActionBtnProps> = ({
 			value={text}
 			onClick={onClick}
 			type={type}
+			disabled={isDisabled}
 		>
 			{text}
 		</button>

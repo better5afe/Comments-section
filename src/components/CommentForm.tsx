@@ -37,7 +37,12 @@ const CommentForm: React.FC<CommentFormProps> = ({
 				value={textareaValue}
 			></textarea>
 			<img src={avatar} className='avatar form-avatar' alt="User's avatar" />
-			<ActionBtn text={buttonText} className='form-btn' type='submit' />
+			<ActionBtn
+				text={buttonText}
+				className='form-btn'
+				type='submit'
+				isDisabled={textareaValue === ''}
+			/>
 		</form>
 	);
 };

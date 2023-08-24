@@ -17,6 +17,10 @@
 	background-color: var(--gray);
 }
 
+.action-btn:disabled {
+	background-color: var(--light-grayish-blue);
+	cursor: not-allowed;
+}
 .modal-cancel {
 	background-color: var(--grayish-blue);
 }

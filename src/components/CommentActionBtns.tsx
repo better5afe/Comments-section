@@ -21,20 +21,28 @@ const CommentActionsBtns: React.FC<CommentActionsBtnsProps> = ({
 }) => {
 	const commentCtx = useContext(CommentContext);
 
-	const replyHandler = () => {
-		console.log(nestingLevel);
-	};
-
 	const ownCommentActions = (
 		<div className={className}>
-			<DeleteBtn onClick={() => {commentCtx.openModal(commentId)}} />
+			<DeleteBtn
+				onClick={() => {
+					commentCtx.openModal(commentId);
+				}}
+			/>
 			<EditBtn />
 		</div>
 	);
 
 	const differentUserCommentActions = (
 		<div className={className}>
-			{nestingLevel === 2 ? '' : <ReplyBtn onReply={replyHandler} />}
+			{nestingLevel === 2 ? (
+				''
+			) : (
+				<ReplyBtn
+					onClick={() => {
+						commentCtx.openReplyForm(commentId);
+					}}
+				/>
+			)}
 		</div>
 	);
 

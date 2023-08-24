@@ -15,6 +15,7 @@ const CommentContextProvider: React.FC<ProviderProps> = ({ children }) => {
 	const [fetchedComments, setFetchedComments] = useState<Comment[]>([]);
 	const [modalStatus, setModalStauts] = useState(false);
 	const [commentId, setCommentId] = useState('');
+	const [isReplying, setIsReplying] = useState(false);
 
 	useEffect(() => {
 		getCommentsAPI().then((response) => setFetchedComments(response));
@@ -38,6 +39,15 @@ const CommentContextProvider: React.FC<ProviderProps> = ({ children }) => {
 		setFetchedComments([...fetchedComments, newComment]);
 	};
 
+	const openReplyFormHandler = (id: string) => {
+		setIsReplying(true);
+		setCommentId(id);
+	};
+
+	const addReplyHandler = () => {
+		console.log('reply');
+	};
+
 	const deleteCommentHandler = () => {
 		const updatedComments = deleteCommentAPI(fetchedComments, commentId);
 
@@ -49,10 +59,14 @@ const CommentContextProvider: React.FC<ProviderProps> = ({ children }) => {
 		<CommentContext.Provider
 			value={{
 				comments: fetchedComments,
+				currentCommentId: commentId,
 				modalStatus: modalStatus,
 				openModal: openModalHandler,
 				hideModal: hideModalHandler,
 				addComment: addCommentHandler,
+				openReplyForm: openReplyFormHandler,
+				isReplying: isReplying,
+				addReply: addReplyHandler,
 				deleteComment: deleteCommentHandler,
 			}}
 		>

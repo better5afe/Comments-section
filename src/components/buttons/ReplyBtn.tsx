@@ -1,12 +1,12 @@
 import './ReplyBtn.css';
 
 interface ReplyBtnProps {
-	onReply: () => void;
+	onClick: () => void;
 }
 
-const ReplyBtn: React.FC<ReplyBtnProps> = ({ onReply }) => {
+const ReplyBtn: React.FC<ReplyBtnProps> = ({ onClick }) => {
 	return (
-		<button className='reply-btn' onClick={onReply}>
+		<button className='reply-btn' onClick={onClick}>
 			<i className='fa-solid fa-reply'></i> Reply
 		</button>
 	);
