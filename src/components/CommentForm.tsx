@@ -20,7 +20,11 @@ const CommentForm: React.FC<CommentFormProps> = ({
 		<form className='component-box' onSubmit={submitHandler}>
 			<textarea className='textarea' placeholder={placeholder}></textarea>
 			<img src={avatar} className='avatar form-avatar' alt="User's avatar" />
-			<ActionBtn text={buttonText} className='form-btn' />
+			<ActionBtn
+				text={buttonText}
+				className='form-btn'
+				type='submit'
+			/>
 		</form>
 	);
 };

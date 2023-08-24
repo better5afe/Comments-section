@@ -64,6 +64,7 @@ const Comment: React.FC<CommentProps> = ({
 							className='desktop-actions'
 							userId={userId}
 							nestingLevel={commentLevel}
+							commentId={id}
 						/>
 					</div>
 					<div className='comment-body'>
@@ -81,6 +82,7 @@ const Comment: React.FC<CommentProps> = ({
 						className='mobile-actions'
 						userId={userId}
 						nestingLevel={commentLevel}
+						commentId={id}
 					/>
 				</div>
 			</div>

@@ -2,9 +2,17 @@ import React from 'react';
 import { Comment } from '../models/comment';
 
 interface ContextTypes {
-	comments: Comment[]
+	comments: Comment[];
+	modalStatus: boolean;
+	openModal: (id: string) => void;
+	hideModal: () => void;
+	deleteComment: () => void;
 }
 
 export const CommentContext = React.createContext<ContextTypes>({
-	comments: []
+	comments: [],
+	modalStatus: false,
+	openModal: (id) => {},
+	hideModal: () => {},
+	deleteComment: () => {},
 });

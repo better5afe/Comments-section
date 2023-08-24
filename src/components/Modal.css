@@ -1,0 +1,44 @@
+@import url('../assets/colors.css');
+
+.modal-background {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--shadow);
+}
+
+.modal-box {
+	flex-direction: column;
+	width: 95vw;
+	max-width: 360px;
+	padding: 1rem;
+	background-color: var(--white);
+	border-radius: 1rem;
+	line-height: 1.5;
+}
+
+.modal-box h3 {
+	margin-bottom: 0.8em;
+	color: var(--dark-blue);
+}
+
+.modal-btns {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 1em;
+}
+
+.disabled {
+	display: none;
+}
+
+@media (min-width: 992px) {
+	.modal-box {
+		padding: 2rem;
+	}
+}

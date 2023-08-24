@@ -14,7 +14,6 @@ export const getComments = async () => {
 			'1 month ago',
 			'12',
 			null
-			
 		),
 		new CommentClass(
 			'2',
@@ -28,7 +27,6 @@ export const getComments = async () => {
 			'2 weeks ago',
 			'5',
 			null
-			
 		),
 		new CommentClass(
 			'3',
@@ -42,7 +40,6 @@ export const getComments = async () => {
 			'1 week ago',
 			'4',
 			'maxblagun'
-			
 		),
 		new CommentClass(
 			'4',
@@ -60,3 +57,8 @@ export const getComments = async () => {
 	];
 };
 
+export const deleteComment = (comments: CommentClass[], id: string) => {
+	const updatedComments = comments.filter((comment) => comment.id !== id);
+
+	return updatedComments;
+};

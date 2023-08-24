@@ -1,6 +1,8 @@
+import { useContext } from 'react';
 import DeleteBtn from './buttons/DeleteBtn';
 import EditBtn from './buttons/EditBtn';
 import ReplyBtn from './buttons/ReplyBtn';
+import { CommentContext } from '../context/comment-context';
 
 import './CommentActionsBtns.css';
 
@@ -8,27 +10,31 @@ interface CommentActionsBtnsProps {
 	className: string;
 	userId: string;
 	nestingLevel: number;
+	commentId: string;
 }
 
 const CommentActionsBtns: React.FC<CommentActionsBtnsProps> = ({
 	className,
 	userId,
 	nestingLevel,
+	commentId,
 }) => {
+	const commentCtx = useContext(CommentContext);
+
 	const replyHandler = () => {
 		console.log(nestingLevel);
 	};
 
 	const ownCommentActions = (
 		<div className={className}>
-			<DeleteBtn />
+			<DeleteBtn onClick={() => {commentCtx.openModal(commentId)}} />
 			<EditBtn />
 		</div>
 	);
 
 	const differentUserCommentActions = (
 		<div className={className}>
-			{nestingLevel === 2 ? '': <ReplyBtn onReply={replyHandler} />}
+			{nestingLevel === 2 ? '' : <ReplyBtn onReply={replyHandler} />}
 		</div>
 	);
 
