@@ -72,12 +72,21 @@ const Comment: React.FC<CommentProps> = ({
 						/>
 					</div>
 					<div className='comment-body'>
-						<p className='comment-text'>
-							{replyingTo && (
-								<span className='replying-to'>@{replyingTo} </span>
-							)}
-							{body}
-						</p>
+						{commentCtx.isEditing && id === commentCtx.currentCommentId ? (
+							<CommentForm
+								placeholder='Edit your comment'
+								buttonText='update'
+								commentId={null}
+								username={null}
+							/>
+						) : (
+							<p className='comment-text'>
+								{replyingTo && (
+									<span className='replying-to'>@{replyingTo} </span>
+								)}
+								{body}
+							</p>
+						)}
 					</div>
 				</div>
 				<div className='comment-aside'>

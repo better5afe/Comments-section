@@ -17,6 +17,7 @@ const CommentForm: React.FC<CommentFormProps> = ({
 	buttonText,
 	commentId,
 	username,
+	
 }) => {
 	const [textareaValue, setTextareaValue] = useState('');
 

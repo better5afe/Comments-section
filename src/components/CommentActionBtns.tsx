@@ -28,7 +28,11 @@ const CommentActionsBtns: React.FC<CommentActionsBtnsProps> = ({
 					commentCtx.openModal(commentId);
 				}}
 			/>
-			<EditBtn />
+			<EditBtn
+				onClick={() => {
+					commentCtx.openEdit(commentId);
+				}}
+			/>
 		</div>
 	);
 
