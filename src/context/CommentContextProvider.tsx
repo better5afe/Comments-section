@@ -42,7 +42,8 @@ const CommentContextProvider: React.FC<ProviderProps> = ({ children }) => {
 	};
 
 	const openReplyFormHandler = (id: string) => {
-		setIsReplying(true);
+		setIsEditing(false);
+		setIsReplying(!isReplying);
 		setCommentId(id);
 	};
 
@@ -54,7 +55,8 @@ const CommentContextProvider: React.FC<ProviderProps> = ({ children }) => {
 	};
 
 	const openEditHandler = (id: string) => {
-		setIsEditing(true);
+		setIsReplying(false);
+		setIsEditing(!isEditing);
 		setCommentId(id);
 	};
 

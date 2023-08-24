@@ -3,6 +3,7 @@ import { Comment as CommentType } from '../models/comment';
 import ReactionBtn from './buttons/ReactionBtn';
 import CommentActionsBtns from './CommentActionBtns';
 import CommentForm from './CommentForm';
+import CommentEdit from './CommentEdit';
 import { CommentContext } from '../context/comment-context';
 
 import './Comment.css';
@@ -73,12 +74,7 @@ const Comment: React.FC<CommentProps> = ({
 					</div>
 					<div className='comment-body'>
 						{commentCtx.isEditing && id === commentCtx.currentCommentId ? (
-							<CommentForm
-								placeholder='Edit your comment'
-								buttonText='update'
-								commentId={null}
-								username={null}
-							/>
+							<CommentEdit initialValue={body} />
 						) : (
 							<p className='comment-text'>
 								{replyingTo && (
