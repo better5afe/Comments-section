@@ -6,6 +6,11 @@ interface ContextTypes {
 	modalStatus: boolean;
 	openModal: (id: string) => void;
 	hideModal: () => void;
+	addComment: (
+		body: string,
+		parentId: string | null,
+		replyingTo: string | null
+	) => void;
 	deleteComment: () => void;
 }
 
@@ -14,5 +19,6 @@ export const CommentContext = React.createContext<ContextTypes>({
 	modalStatus: false,
 	openModal: (id) => {},
 	hideModal: () => {},
+	addComment: (body, parentId, replyingTo) => {},
 	deleteComment: () => {},
 });

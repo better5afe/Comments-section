@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { CommentContext } from './comment-context';
 import {
 	getComments as getCommentsAPI,
+	addComment as addCommentAPI,
 	deleteComment as deleteCommentAPI,
 } from '../api/api';
 import { Comment } from '../models/custom-types';
@@ -28,6 +29,15 @@ const CommentContextProvider: React.FC<ProviderProps> = ({ children }) => {
 		setModalStauts(false);
 	};
 
+	const addCommentHandler = (
+		body: string,
+		parentId: string | null,
+		replyingTo: string | null
+	) => {
+		const newComment = addCommentAPI(body, parentId, replyingTo);
+		setFetchedComments([...fetchedComments, newComment]);
+	};
+
 	const deleteCommentHandler = () => {
 		const updatedComments = deleteCommentAPI(fetchedComments, commentId);
 
@@ -42,6 +52,7 @@ const CommentContextProvider: React.FC<ProviderProps> = ({ children }) => {
 				modalStatus: modalStatus,
 				openModal: openModalHandler,
 				hideModal: hideModalHandler,
+				addComment: addCommentHandler,
 				deleteComment: deleteCommentHandler,
 			}}
 		>

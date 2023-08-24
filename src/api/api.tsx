@@ -57,6 +57,28 @@ export const getComments = async () => {
 	];
 };
 
+export const addComment = (
+	body: string,
+	parentId: string | null,
+	replyingTo: string | null
+) => {
+	const newComment = new CommentClass(
+		Math.random().toString(),
+		body,
+		{
+			username: 'juliusomo',
+			userImg: require('../assets/images/image-juliusomo.png'),
+			userId: '4',
+		},
+		parentId,
+		'just now',
+		'0',
+		replyingTo
+	);
+	
+	return newComment;
+};
+
 export const deleteComment = (comments: CommentClass[], id: string) => {
 	const updatedComments = comments.filter((comment) => comment.id !== id);
 
