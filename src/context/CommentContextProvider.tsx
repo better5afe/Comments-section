@@ -4,6 +4,7 @@ import {
 	getComments as getCommentsAPI,
 	addComment as addCommentAPI,
 	deleteComment as deleteCommentAPI,
+	editComment as editCommentAPI,
 } from '../api/api';
 import { Comment } from '../models/custom-types';
 
@@ -60,7 +61,12 @@ const CommentContextProvider: React.FC<ProviderProps> = ({ children }) => {
 		setCommentId(id);
 	};
 
-	const editCommentHandler = () => {};
+	const editCommentHandler = (body: string, id: string) => {
+		const updatedComments = editCommentAPI(fetchedComments, body, id);
+
+		setFetchedComments(updatedComments);
+		setIsEditing(false);
+	};
 
 	return (
 		<CommentContext.Provider

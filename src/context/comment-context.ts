@@ -16,8 +16,8 @@ interface ContextTypes {
 	isReplying: boolean;
 	deleteComment: () => void;
 	openEdit: (id: string) => void;
-	isEditing: boolean,
-	editComment: () => void;
+	isEditing: boolean;
+	editComment: (body: string, id: string) => void;
 }
 
 export const CommentContext = React.createContext<ContextTypes>({
@@ -29,8 +29,8 @@ export const CommentContext = React.createContext<ContextTypes>({
 	addComment: (body, parentId, replyingTo) => {},
 	openReplyForm: (id) => {},
 	isReplying: false,
-	deleteComment: () => { },
-	openEdit: (id) => { },
+	deleteComment: () => {},
+	openEdit: (id) => {},
 	isEditing: false,
-	editComment: () => {},
+	editComment: (body, id) => {},
 });

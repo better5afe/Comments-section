@@ -1,5 +1,21 @@
 @import url('../assets/colors.css');
 
+.textarea {
+	min-height: 80px;
+	width: 100%;
+	padding: 0.8em 1em;
+	margin-bottom: 0.8em;
+	border: 1px solid var(--gray);
+	border-radius: 1rem;
+	outline: none;
+	line-height: 1.5;
+	resize: vertical;
+}
+
+.textarea:focus {
+	border: 1px solid var(--grayish-blue);
+}
+
 .form-btn {
 	float: right;
 }
@@ -9,11 +25,15 @@
 		margin: 0 0.8em;
 	}
 
+	.edit-textarea {
+		margin: 0 0 0.8em;
+	}
+
 	.avatar {
 		order: -1;
 	}
 
-    .form-btn {
-        align-self: flex-start;
-    }
+	.form-btn {
+		align-self: flex-start;
+	}
 }

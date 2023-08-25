@@ -10,6 +10,7 @@ interface CommentFormProps {
 	buttonText: string;
 	commentId: string | null;
 	username: string | null;
+	initialValue: string;
 }
 
 const CommentForm: React.FC<CommentFormProps> = ({
@@ -17,9 +18,9 @@ const CommentForm: React.FC<CommentFormProps> = ({
 	buttonText,
 	commentId,
 	username,
-	
+	initialValue,
 }) => {
-	const [textareaValue, setTextareaValue] = useState('');
+	const [textareaValue, setTextareaValue] = useState(initialValue);
 
 	const commentCtx = useContext(CommentContext);
 
@@ -27,25 +28,38 @@ const CommentForm: React.FC<CommentFormProps> = ({
 		setTextareaValue(event.currentTarget.value);
 	};
 
-	const submitHandler = (event: React.FormEvent) => {
+	const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		if (buttonText === 'send') {
 			commentCtx.addComment(textareaValue, null, null);
 		} else if (buttonText === 'reply') {
 			commentCtx.addComment(textareaValue, commentId, username);
+		} else if (buttonText === 'update') {
+			commentCtx.editComment(textareaValue, commentId!);
 		}
 		setTextareaValue('');
 	};
 
 	return (
-		<form className='component-box' onSubmit={submitHandler}>
+		<form
+			className={
+				buttonText === 'update' ? 'component-box edit-box' : 'component-box'
+			}
+			onSubmit={submitHandler}
+		>
 			<textarea
-				className='textarea'
+				className={
+					buttonText === 'update' ? 'textarea edit-textarea' : 'textarea'
+				}
 				placeholder={placeholder}
 				onChange={getValueHandler}
 				value={textareaValue}
 			></textarea>
-			<img src={avatar} className='avatar form-avatar' alt="User's avatar" />
+			{buttonText === 'update' ? (
+				''
+			) : (
+				<img src={avatar} className='avatar form-avatar' alt="User's avatar" />
+			)}
 			<ActionBtn
 				text={buttonText}
 				className='form-btn'

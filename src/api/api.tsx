@@ -66,7 +66,7 @@ export const getComments = async () => {
 			'1 day ago',
 			'1',
 			'juliusomo'
-		)
+		),
 	];
 };
 
@@ -95,5 +95,19 @@ export const addComment = (
 export const deleteComment = (comments: CommentClass[], id: string) => {
 	const updatedComments = comments.filter((comment) => comment.id !== id);
 
+	return updatedComments;
+};
+
+export const editComment = (
+	comments: CommentClass[],
+	body: string,
+	id: string
+) => {
+	const updatedComments = comments.map((comment) => {
+		if (comment.id === id) {
+			return { ...comment, body: body };
+		}
+		return comment;
+	});
 	return updatedComments;
 };

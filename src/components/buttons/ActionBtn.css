@@ -21,6 +21,11 @@
 	background-color: var(--light-grayish-blue);
 	cursor: not-allowed;
 }
+
+.update-btn {
+	margin-top: .8em;
+}
+
 .modal-cancel {
 	background-color: var(--grayish-blue);
 }
