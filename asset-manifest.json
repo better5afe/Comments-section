@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Comments-section/static/css/main.0871ffcc.css",
+    "main.js": "/Comments-section/static/js/main.d5b2af68.js",
+    "index.html": "/Comments-section/index.html",
+    "main.0871ffcc.css.map": "/Comments-section/static/css/main.0871ffcc.css.map",
+    "main.d5b2af68.js.map": "/Comments-section/static/js/main.d5b2af68.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0871ffcc.css",
+    "static/js/main.d5b2af68.js"
+  ]
+}
